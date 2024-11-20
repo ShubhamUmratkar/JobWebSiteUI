@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Job } from 'src/app/model/job.model';
+import { JobService } from 'src/app/service/job.service';
 
 @Component({
   selector: 'app-job-slider',
@@ -6,49 +8,66 @@ import { Component } from '@angular/core';
   styleUrls: ['./job-slider.component.css']
 })
 export class JobSliderComponent {
-  jobs = [
-    { title: 'Business Development', location: 'Gurgaon', salary: '20000-30000', openings: 20, type: 'Work From Home' },
-    { title: 'Data Science', location: 'Pune, Nagpur', salary: '25000-35000', openings: 21, type: 'Work From Home' },
-    { title: 'Web Development', location: 'Gurgaon', salary: '20000-30000', openings: 20, type: 'Onsite' }
-  ];
-
+  jobs: Job[] = [];
   currentIndex = 0;
 
-  // Show previous, current, and next job
-  getVisibleJobs() {
+  constructor(private jobService: JobService) {}
+
+  ngOnInit(): void {
+    this.fetchJobs();
+  }
+
+  fetchJobs(): void {
+    this.jobService.getAllJobs().subscribe(
+      (data: Job[]) => {
+        if (data && data.length > 0) {
+          this.jobs = data;
+          console.log('Fetched jobs:', this.jobs);
+        } else {
+          console.warn('No jobs returned from API.');
+          this.jobs = []; // Ensure jobs array is empty but defined
+        }
+      },
+      (error) => {
+        console.error('Error fetching jobs:', error);
+        this.jobs = []; // Fallback to empty array in case of an error
+      }
+    );
+  }
+
+  getVisibleJobs(): (Job | null)[] {
     const length = this.jobs.length;
+    if (length === 0) {
+      return [null, null, null]; // Return placeholders when no jobs are available
+    }
     return [
-      this.jobs[(this.currentIndex - 1 + length) % length], // Previous job
-      this.jobs[this.currentIndex],                         // Current (active) job
-      this.jobs[(this.currentIndex + 1) % length]           // Next job
+      this.jobs[(this.currentIndex - 1 + length) % length] || null,
+      this.jobs[this.currentIndex] || null,
+      this.jobs[(this.currentIndex + 1) % length] || null
     ];
   }
 
-  // Helper methods to apply the correct classes
   isActive(index: number): boolean {
-    return index === 1;  // Middle element in `getVisibleJobs()` is active
+    return index === 1; // Middle element in `getVisibleJobs()` is active
   }
 
   isPrev(index: number): boolean {
-    return index === 0;  // First element in `getVisibleJobs()` is previous
+    return index === 0; // First element in `getVisibleJobs()` is previous
   }
 
   isNext(index: number): boolean {
-    return index === 2;  // Last element in `getVisibleJobs()` is next
+    return index === 2; // Last element in `getVisibleJobs()` is next
   }
 
-  // Navigate to the previous job
-  prev() {
+  prev(): void {
     this.currentIndex = (this.currentIndex > 0) ? this.currentIndex - 1 : this.jobs.length - 1;
   }
 
-  // Navigate to the next job
-  next() {
+  next(): void {
     this.currentIndex = (this.currentIndex < this.jobs.length - 1) ? this.currentIndex + 1 : 0;
   }
 
-  // Set the active job by index
-  setActiveIndex(index: number) {
+  setActiveIndex(index: number): void {
     this.currentIndex = index;
   }
 }

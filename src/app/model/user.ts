@@ -1,24 +1,23 @@
 export class User {
-    userName: string;
-    fullName: string;
-    emailId: string;
-    password: string;
-    confirmPassword: string;
-    mobileNo: string;
-  
-    constructor(
-      userName: string,
-      fullName: string,
-      emailId: string,
-      password: string,
-      confirmPassword: string,
-      mobileNo: string
-    ) {
-      this.userName = userName;
-      this.fullName = fullName;
-      this.emailId = emailId;
-      this.password = password;
-      this.confirmPassword = confirmPassword;
-      this.mobileNo = mobileNo;
-    }
+  fullName: string;
+  userName: string;
+  emailId: string;
+  gender: string;
+  mobileNo: string;
+  password: string;
+  confirmPassword: string;
+  status: string;
+  terms?: boolean;
+
+  constructor(init?: Partial<User>) {
+    this.fullName = init?.fullName || '';
+    this.userName = init?.userName || '';
+    this.emailId = init?.emailId || '';
+    this.gender = init?.gender || '';
+    this.mobileNo = init?.mobileNo || '';
+    this.password = init?.password || '';
+    this.confirmPassword = init?.confirmPassword || '';
+    this.status = init?.status || '';
+    this.terms = init?.terms || false; // Default to `false` if not provided
+  }
 }

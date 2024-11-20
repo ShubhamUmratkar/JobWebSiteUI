@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { CertificationComponent } from './component/certification/certification.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HiringPartnerComponent } from './component/hiring-partner/hiring-partner.component';
-import { RegisterComponent } from './component/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -19,13 +18,22 @@ import { AdminloginComponent } from './component/adminlogin/adminlogin.component
 import { AdminlogindynamicComponent } from './component/adminlogindynamic/adminlogindynamic.component';
 import { AdminregisterComponent } from './component/adminregister/adminregister.component';
 
+import { RegisterComponent } from './component/register/register.component';
+import { UserlistComponent } from './component/userlist/userlist.component';
+import { ViewAllInternshipComponent } from './component/view-all-internship/view-all-internship.component';
+import { SaveJobComponent } from './component/save-job/save-job.component';
+import { ViellAllJobsComponent } from './component/viell-all-jobs/viell-all-jobs.component';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     CertificationComponent,
     FooterComponent,
     HiringPartnerComponent,
-    RegisterComponent,
+
     HomepageComponent,
     NavbarComponent,
     InternshipComponent,
@@ -35,7 +43,12 @@ import { AdminregisterComponent } from './component/adminregister/adminregister.
     AdminpanelComponent,
     AdminloginComponent,
     AdminlogindynamicComponent,
-    AdminregisterComponent
+    AdminregisterComponent,
+    RegisterComponent,
+    UserlistComponent,
+    ViewAllInternshipComponent,
+    SaveJobComponent,
+    ViellAllJobsComponent
 
   ],
   imports: [
@@ -44,6 +57,7 @@ import { AdminregisterComponent } from './component/adminregister/adminregister.
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,  
+
   ],
   providers: [],
   bootstrap: [AppComponent]

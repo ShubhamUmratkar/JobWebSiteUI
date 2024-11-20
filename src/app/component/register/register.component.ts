@@ -1,44 +1,83 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
 
-@Component({
+
+
+
+@Component({     
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  registerForm: FormGroup;
+  submitted = false;
 
-  user: User = new User('', '', '', '', '', '');  // Initialize user with default empty values
-  errorMessage: string = '';
-  successMessage: string = '';
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+    this.registerForm = this.formBuilder.group({
+      fullName: ['', Validators.required],
+      userName: ['', Validators.required],
+      emailId: ['', [Validators.required, Validators.email]],
+      gender: ['', Validators.required],
+      mobileNo: ['', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z0-9@$!%*?&]{8,}$")
+      ]],
+      confirmPassword: ['', Validators.required],
+      terms: [false, Validators.requiredTrue]
+    }, {
+      validator: this.matchPasswords('password', 'confirmPassword')
+    });
+  }
 
-  constructor(private userService: UserService, private router: Router) {}
+  matchPasswords(password: string, confirmPassword: string) {
+    return (formGroup: FormGroup) => {
+      const passwordControl = formGroup.controls[password];
+      const confirmPasswordControl = formGroup.controls[confirmPassword];
+
+      if (confirmPasswordControl.errors && !confirmPasswordControl.errors['mustMatch']) {
+        return;
+      }
+
+      if (passwordControl.value !== confirmPasswordControl.value) {
+        confirmPasswordControl.setErrors({ mustMatch: true });
+      } else {
+        confirmPasswordControl.setErrors(null);
+      }
+    };
+  }
 
   onSubmit() {
-    // Basic form validation
-    if (!this.user.userName || !this.user.password || !this.user.emailId || !this.user.mobileNo || !this.user.fullName) {
-      this.errorMessage = 'Please fill in all required fields';
+    this.submitted = true;
+  
+    if (this.registerForm.invalid) {
       return;
     }
-
-    if (this.user.password !== this.user.confirmPassword) {
-      this.errorMessage = 'Passwords do not match';
-      return;
-    }
-
-    // Sending the user data to the backend
-    this.userService.registerUser(this.user).subscribe(
-      (response) => {
-        console.log('User registered successfully', response);
-        this.successMessage = response.message;  // Assuming the backend returns { message: "success" }
-        this.router.navigate(['/login']);  // Redirect after successful registration
+  
+    const user = new User(this.registerForm.value); // Pass form values to the constructor
+  
+    this.userService.registerUser(user).subscribe(
+      response => {
+        if (response.success) {
+          alert(response.message); // Show success message
+        } else {
+          alert(response.message); // Show failure message
+        }
+        console.log('Server response:', response);
       },
-      (error) => {
-        console.error('Registration failed', error);
-        this.errorMessage = error.error ? error.error.message : 'Registration failed. Please try again.';
+      error => {
+        alert('Registration failed. Please try again later.');
+        console.error('Error:', error);
       }
     );
+  }
+  
+
+  get f() {
+    return this.registerForm.controls;
   }
 }

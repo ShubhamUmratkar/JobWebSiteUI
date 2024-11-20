@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="login-container">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="username">Usernname</label>
+      <input type="text" id="username" formControlName="username" placeholder="Enter your username" />
+      <div *ngIf="submitted && f['username'].errors" class="error">
+        <div *ngIf="f['username'].errors['required']">Username is required</div>
+      </div>
+  
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" placeholder="Enter your password" />
+      <div *ngIf="submitted && f['password'].errors" class="error">
+        <div *ngIf="f['password'].errors['required']">Password is required</div>
+      </div>
+  
+      <!-- Incorrect username or password message -->
+      <div *ngIf="loginFailed" class="error">
+        Incorrect userName or password. Please try again.
+      </div>
+  
+      <button type="submit">Login</button>
+
+      <button type="button" (click)="navigateToAdminLogin()">Admin Login</button>
+    </form>
+  </div>
+  

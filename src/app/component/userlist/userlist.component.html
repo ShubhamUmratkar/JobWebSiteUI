@@ -1,3 +1,4 @@
+
 <!-- Bootstrap CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -74,3 +75,32 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+
+
+<div class="admin-panel-container">
+    <h1>Admin Panel - Registered Users</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Full Name</th>
+          <th>Mobile No</th>
+          <th>Gender</th>
+          <th>Email ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.userName }}</td>
+          <td>{{ user.fullName }}</td>
+          <td>{{ user.mobileNo }}</td>
+          <td>{{ user.gender }}</td>
+          <td>{{ user.emailId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

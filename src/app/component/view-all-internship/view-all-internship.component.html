@@ -1,0 +1,15 @@
+<div class="internship-container">
+  <h1>All Available Internships</h1>
+  <div class="internship-grid">
+    <div class="internship-card" *ngFor="let internship of internships">
+      <h3>{{ internship.title }}</h3>
+      <button class="view-more-btn">View More..</button>
+      <ul class="internship-details">
+        <li>{{ internship.location }}</li>
+        <li>₹{{ internship.stipend }} Months</li>
+        <li>{{ internship.duration }} Months</li>
+        <li>{{ internship.qualifications }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

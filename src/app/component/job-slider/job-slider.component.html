@@ -1,37 +1,40 @@
-
 <div class="page-container">
     <div class="title-container">
-        <h2>Latest Jobs on Website</h2>
+      <h2>Latest Jobs on XYZ</h2>
     </div>
-    <br>
+    <br />
     <div class="job-slider">
-        <div class="slider-container">
-            <div 
-                *ngFor="let job of getVisibleJobs(); let i = index" 
-                class="card" 
-                [ngClass]="{
-                    'active': isActive(i), 
-                    'left': isPrev(i), 
-                    'right': isNext(i)
-                }"
-                (click)="setActiveIndex(i)">
-                <h3>{{ job.title }}</h3>
-                <ul>
-                    <li>{{ job.location }}</li>
-                    <li>₹ {{ job.salary }}</li>
-                    <li>Openings - {{ job.openings }}</li>
-                    <li>{{ job.type }}</li>
-                </ul>
-                <button class="view-more">View More..</button>
-            </div>
+      <div class="slider-container">
+        <div
+          *ngFor="let job of getVisibleJobs(); let i = index"
+          class="card"
+          [ngClass]="{
+            'active': isActive(i),
+            'left': isPrev(i),
+            'right': isNext(i)
+          }"
+          (click)="setActiveIndex(i)"
+        >
+          <h3>{{ job?.title }}</h3> <!-- Use the safe navigation operator -->
+          <ul *ngIf="job">
+            <li>{{ job?.location }}</li>
+            <li>₹ {{ job?.salary | number }}</li>
+            <li>{{ job?.employmentType }}</li>
+            <li>{{ job?.workModel }}</li>
+          </ul>
+          <!-- View More button with routing to view-job page -->
+          <a *ngIf="job" [routerLink]="['/view-job', job?.id]" class="view-more">View More..</a>
         </div>
-        <div class="navigation">
-            <button (click)="prev()">&#10094;</button>
-            <button (click)="next()">&#10095;</button>
-        </div>
-        
+      </div>
+      <div class="navigation">
+        <button (click)="prev()">&#10094;</button>
+        <button (click)="next()">&#10095;</button>
+      </div>
     </div>
-    <div>
-        <a href="#" class="read-more">View More <button>&#10095;</button></a>
-    </div>
-</div>
+    <!-- View All Jobs button -->
+     <div>
+      <a [routerLink]="'/view-all-jobs'" class="read-more">View More <button>&#10095;</button></a>
+     </div>
+
+  </div>
+  
