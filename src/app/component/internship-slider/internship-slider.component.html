@@ -1,0 +1,28 @@
+
+<div class="internship-slider">
+    <h2>Latest Internships</h2>
+    <div class="slider-container">
+      <button class="arrow-btn" (click)="prevSlide()">&#10094;</button>
+  
+      <div class="internship-cards-wrapper">
+        <div class="internship-cards">
+          <div *ngFor="let internship of getVisibleInternships(); let i = index"
+               [ngClass]="{'internship-card': true, 'active': isActive(i), 'prev': isPrev(i), 'next': isNext(i)}">
+            <h3>{{ internship.title }}</h3>
+            <p class="company">{{ internship.company }}</p>
+            <p class="location">&#x1F4CD; {{ internship.location }}</p>
+            <p class="salary">&#8377; {{ internship.salary }} / Month</p>
+            <p class="duration">&#x1F4C5; {{ internship.duration }} Months</p>
+            <button class="details-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+     
+
+     
+      <a href="#" class="read-more">View More <button >&#10095;</button></a>
+      <button class="arrow-btn" (click)="nextSlide()">&#10095;</button>
+    </div>
+    
+  </div>
+  

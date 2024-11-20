@@ -1,0 +1,46 @@
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divides the page into three parts */
+    gap: 20px; /* Adds gap between each card */
+    padding: 20px;
+  }
+  
+  .course-card {
+    background: linear-gradient(135deg, #8eb1ea, #2869f4);
+    color: #fff;
+    padding: 20px;
+    height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+  }
+  
+  .course-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .course-duration {
+    font-size: 30px;
+    margin-top: 10px;
+    color: #e0e0e0;
+  }
+  
+  .course-stars {
+    color: gold;
+    font-size: 30px;
+    margin: 5px 0;
+  }
+  
+  .learners {
+    font-size: 20px;
+    color: #e0e0e0;
+    margin-top: 10px;
+  }
+  
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .course-container {
+      grid-template-columns: 1fr; /* Stacks the cards on top of each other on smaller screens */
+    }
+  }
+  

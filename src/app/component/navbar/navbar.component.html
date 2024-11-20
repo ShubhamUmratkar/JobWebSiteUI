@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <ul class="nav-items">
+    <li class="nav-item" *ngFor="let item of navItems">
+      <a>{{ item.label }}</a>
+      <div class="dropdown">
+        <div *ngFor="let category of item.categories" class="dropdown-category">
+          <h3>{{ category.title }} <span class="dropdown-icon"></span></h3>
+          <div *ngFor="let subitem of category.items" class="dropdown-item">
+            <a href="#">{{ subitem }}</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <button class="login-button">Login</button>
+</nav>

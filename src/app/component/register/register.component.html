@@ -1,0 +1,122 @@
+<!-- register.component.html -->
+<div class="register-container">
+    <h2>Register</h2>
+  
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <!-- Username -->
+      <div class="form-group">
+        <label for="userName">Username</label>
+        <input
+          type="text"
+          id="userName"
+          class="form-control"
+          required
+          [(ngModel)]="user.userName"
+          name="userName"
+          #userName="ngModel"
+        />
+        <div *ngIf="userName.invalid && userName.touched" class="error">
+          Username is required.
+        </div>
+      </div>
+  
+      <!-- Full Name -->
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input
+          type="text"
+          id="fullName"
+          class="form-control"
+          required
+          [(ngModel)]="user.fullName"
+          name="fullName"
+          #fullName="ngModel"
+        />
+        <div *ngIf="fullName.invalid && fullName.touched" class="error">
+          Full Name is required.
+        </div>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-group">
+        <label for="emailId">Email</label>
+        <input
+          type="email"
+          id="emailId"
+          class="form-control"
+          required
+          [(ngModel)]="user.emailId"
+          name="emailId"
+          #emailId="ngModel"
+        />
+        <div *ngIf="emailId.invalid && emailId.touched" class="error">
+          Valid email is required.
+        </div>
+      </div>
+  
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          required
+          [(ngModel)]="user.password"
+          name="password"
+          #password="ngModel"
+        />
+        <div *ngIf="password.invalid && password.touched" class="error">
+          Password is required.
+        </div>
+      </div>
+  
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control"
+          required
+          [(ngModel)]="user.confirmPassword"
+          name="confirmPassword"
+          #confirmPassword="ngModel"
+        />
+        <div *ngIf="confirmPassword.invalid && confirmPassword.touched" class="error">
+          Confirm Password is required.
+        </div>
+        <div *ngIf="confirmPassword.value !== user.password && confirmPassword.touched" class="error">
+          Passwords do not match.
+        </div>
+      </div>
+  
+      <!-- Mobile Number -->
+      <div class="form-group">
+        <label for="mobileNo">Mobile Number</label>
+        <input
+          type="text"
+          id="mobileNo"
+          class="form-control"
+          required
+          [(ngModel)]="user.mobileNo"
+          name="mobileNo"
+          #mobileNo="ngModel"
+        />
+        <div *ngIf="mobileNo.invalid && mobileNo.touched" class="error">
+          Mobile number is required.
+        </div>
+      </div>
+  
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">
+        Register
+      </button>
+    </form>
+  </div>
+  
