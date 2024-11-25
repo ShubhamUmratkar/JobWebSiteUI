@@ -1,5 +1,5 @@
 .form-container {
-  max-width: 400px;
+  max-width: 900px;
   margin: auto;
   padding: 1rem;
   border: 1px solid #ccc;
@@ -13,7 +13,7 @@ label {
   font-weight: bold;
 }
 
-input {
+input, textarea {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -34,4 +34,19 @@ button {
 
 button:hover {
   background-color: #218838;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .form-container {
+    padding: 0.5rem;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
 }

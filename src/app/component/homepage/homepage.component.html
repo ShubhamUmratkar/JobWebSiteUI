@@ -10,8 +10,16 @@
         type="text"
         class="search-input"
         placeholder="Enter skills/designations | Enter location | Enter Experience"
+        [(ngModel)]="searchText" 
+        (input)="onSearchInput()"
       />
-      <button class="search-button">Search<span class="arrow">→</span></button>
+      <button
+        class="search-button"
+        [disabled]="!searchText"
+        (click)="searchJobs()"
+      >
+        Search<span class="arrow">→</span>
+      </button>
     </div>
 
     <!-- Job Count Text -->
@@ -22,7 +30,7 @@
     <!-- CTA Section -->
     <div class="cta-section">
       <button class="register-button">
-       <a routerLink="/register">Register now &nbsp;&nbsp;<span class="arrow">→</span></a> 
+        <a routerLink="/register">Register now &nbsp;&nbsp;<span class="arrow">→</span></a>
       </button>
       <h2 class="cta-title">Turn your dream career into reality</h2>
     </div>
@@ -41,5 +49,3 @@
 <app-job-slider></app-job-slider>
 <app-internship-slider></app-internship-slider>
 <app-footer></app-footer>
-
-

@@ -56,4 +56,12 @@ export class LoginComponent {
   navigateToAdminLogin(){
     this.router.navigate(['/adminlogindynamic']);
   }
+
+  navigateToForgotPassword(){
+
+  }
+
+  navigateToHome(){
+    this.router.navigate(['/']);
+  }
 }

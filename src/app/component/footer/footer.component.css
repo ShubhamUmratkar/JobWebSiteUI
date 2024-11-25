@@ -122,12 +122,14 @@
   .stats {
     flex-direction: column;
     align-items: center;
+    padding: 20px;
   }
 
   .footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 20px;  /* Adjust padding for smaller screens */
   }
 
   .footer-right {
@@ -138,6 +140,30 @@
 
   .footer-left, .footer-column {
     max-width: 100%;
+  }
+
+  .footer-left h2 {
+    font-size: 1.6rem; /* Slightly smaller on smaller screens */
+  }
+
+  .footer-left p {
+    font-size: 1.3rem; /* Slightly smaller on smaller screens */
+  }
+
+  .footer-column h3 {
+    font-size: 1.4rem; /* Slightly smaller on smaller screens */
+  }
+
+  .footer-column ul li {
+    font-size: 1.0rem; /* Adjusted font size */
+  }
+
+  .subscribe input {
+    width: 60%; /* Adjust width for smaller screens */
+  }
+
+  .subscribe button {
+    font-size: 1rem; /* Slightly smaller button text */
   }
 }
 
@@ -163,11 +189,15 @@
     font-size: 1.3rem; /* Adjusted font size for smaller screens */
   }
 
+  .footer-column ul li {
+    font-size: 1rem; /* Adjusted font size for smaller screens */
+  }
+
   .subscribe input {
-    width: 60%;
+    width: 70%; /* Slight adjustment for smaller screens */
   }
 
   .subscribe button {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Slight adjustment for smaller screens */
   }
 }

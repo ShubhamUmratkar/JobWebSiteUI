@@ -23,6 +23,7 @@ import { UserlistComponent } from './component/userlist/userlist.component';
 import { ViewAllInternshipComponent } from './component/view-all-internship/view-all-internship.component';
 import { SaveJobComponent } from './component/save-job/save-job.component';
 import { ViellAllJobsComponent } from './component/viell-all-jobs/viell-all-jobs.component';
+import { JobspostsComponent } from './component/jobsposts/jobsposts.component';
 
 
 
@@ -48,7 +49,8 @@ import { ViellAllJobsComponent } from './component/viell-all-jobs/viell-all-jobs
     UserlistComponent,
     ViewAllInternshipComponent,
     SaveJobComponent,
-    ViellAllJobsComponent
+    ViellAllJobsComponent,
+    JobspostsComponent
 
   ],
   imports: [

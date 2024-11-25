@@ -24,7 +24,7 @@ export class AdminloginComponent {
       alert('Login successful!');
 
       // Redirect to another page or take some action
-      this.router.navigate(['/adminpanel']);
+      this.router.navigate(['/save-job']);
     } else {
       this.loginError = true;
     }

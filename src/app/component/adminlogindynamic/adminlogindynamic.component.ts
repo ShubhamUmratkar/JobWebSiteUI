@@ -46,7 +46,7 @@ export class AdminlogindynamicComponent {
     this.AdminService.loginAdmin(username, password).subscribe(
       (response: string) => {
         this.isLoading = false; // Stop loading spinner
-        this.router.navigate(['/adminpanel']); // Navigate to dashboard
+        this.router.navigate(['/save-job']); // Navigate to dashboard
       },
       (error) => {
         this.isLoading = false; // Stop loading spinner
@@ -54,5 +54,9 @@ export class AdminlogindynamicComponent {
         this.errorMessage = error.error?.message || 'Invalid username or password';
       }
     );
+  }
+
+  navigateToHome(){
+    this.router.navigate(['/']);
   }
 }

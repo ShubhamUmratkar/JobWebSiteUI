@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
 
@@ -15,7 +16,9 @@ export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService,
+    private router: Router
+  ) {
     this.registerForm = this.formBuilder.group({
       fullName: ['', Validators.required],
       userName: ['', Validators.required],
@@ -64,10 +67,11 @@ export class RegisterComponent {
       response => {
         if (response.success) {
           alert(response.message); // Show success message
+          this.router.navigate(['/login']);
         } else {
           alert(response.message); // Show failure message
         }
-        console.log('Server response:', response);
+    
       },
       error => {
         alert('Registration failed. Please try again later.');
