@@ -29,6 +29,7 @@ import { InternshipDetailsComponent } from './component/internship-details/inter
 import { ViewJobComponent } from './component/view-job/view-job.component';
 import { ApplyJobComponent } from './component/apply-job/apply-job.component';
 import { ApplyInternshipComponent } from './component/apply-internship/apply-internship.component';
+import { ViewAllFormsAdminComponent } from './component/view-all-forms-admin/view-all-forms-admin.component';
 
 
 
@@ -61,6 +62,7 @@ import { ApplyInternshipComponent } from './component/apply-internship/apply-int
     ViewJobComponent,
     ApplyJobComponent,
     ApplyInternshipComponent,
+    ViewAllFormsAdminComponent,
 
   ],
   imports: [

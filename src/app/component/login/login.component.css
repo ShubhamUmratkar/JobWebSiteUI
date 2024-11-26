@@ -6,6 +6,7 @@
   padding: 40px;
   background-color: #fff;
   border-radius: 8px;
+  background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   position: relative;

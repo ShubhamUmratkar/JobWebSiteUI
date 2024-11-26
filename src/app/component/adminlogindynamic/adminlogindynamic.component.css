@@ -56,6 +56,8 @@ body, html {
 /* Right Section - Form Container */
 .right-section {
   background-color: #ffffff;
+  background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3); /* Gradient background */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   width: 40%; /* Adjust width for desired layout */
   padding: 80px 60px; /* Increase padding for a larger appearance */
   display: flex;
@@ -163,13 +165,13 @@ button:disabled {
 }
 
 .login-link a {
-  color: #007bff;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
 }
 
 .login-link a:hover {
-  color: #0056b3;
+  color: #010101;
 }
 
 /* Register Now Link */

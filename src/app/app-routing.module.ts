@@ -27,6 +27,7 @@ import { InternshipDetailsComponent } from './component/internship-details/inter
 import { ViewJobComponent } from './component/view-job/view-job.component';
 import { ApplyJobComponent } from './component/apply-job/apply-job.component';
 import { ApplyInternshipComponent } from './component/apply-internship/apply-internship.component';
+import { ViewAllFormsAdminComponent } from './component/view-all-forms-admin/view-all-forms-admin.component';
 
 const routes: Routes = [
   {path:'footer',component:FooterComponent},
@@ -56,7 +57,7 @@ const routes: Routes = [
   { path: 'view-job/:id', component: ViewJobComponent },
   { path: 'apply-job/:id', component:ApplyJobComponent},
   {path: 'apply-internship/:id' ,component:ApplyInternshipComponent},
-  
+  {path:'view-all-forms-admin',component:ViewAllFormsAdminComponent},
   
 
 

@@ -81,6 +81,7 @@ body, html {
 .right-section {
   width: 50%;
   background: #ffffff;
+  background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3); /* Gradient background */
   padding: 40px 30px;
   display: flex;
   flex-direction: column;
@@ -92,7 +93,7 @@ body, html {
 .form-container h2 {
   text-align: center;
   font-size: 24px;
-  color: #333333;
+  color: #fdfdfd;
   margin-bottom: 20px;
 }
 
@@ -103,7 +104,7 @@ body, html {
 .form-group label {
   display: block;
   font-size: 14px;
-  color: #555555;
+  color: #000000;
   margin-bottom: 5px;
 }
 
@@ -124,7 +125,7 @@ body, html {
 .register-btn {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #65a8f0;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -150,7 +151,7 @@ body, html {
 }
 
 .login-link a {
-  color: #007bff;
+  color: #000000;
   text-decoration: none;
   font-weight: bold;
 }

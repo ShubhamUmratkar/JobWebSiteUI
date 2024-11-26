@@ -117,6 +117,21 @@
   color: #0b0b0b;
 }
 
+/* Remove link specific styles for 'Contact' list item */
+.footer-column ul li a {
+  text-decoration: none; /* No underline */
+  color: inherit; /* Inherit color from the parent (like other li items) */
+  cursor: pointer; /* Make it behave like other items */
+  transition: color 0.3s; /* Ensure smooth color transition on hover */
+}
+
+/* Apply same hover effect as other li items */
+.footer-column ul li a:hover,
+.footer-column ul li:hover {
+  color: #0b0b0b; /* Change color on hover to match other items */
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .stats {

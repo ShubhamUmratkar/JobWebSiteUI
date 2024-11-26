@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+
+  sendemail(){
+    alert('Mail Send Successfylly');
+  }
 }

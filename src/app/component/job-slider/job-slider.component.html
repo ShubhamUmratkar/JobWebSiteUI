@@ -1,40 +1,28 @@
-<div class="page-container">
-    <div class="title-container">
-      <h2>Latest Jobs</h2>
-    </div>
-    <br />
-    <div class="job-slider">
-      <div class="slider-container">
+<div class="job-slider">
+  <h2>Latest Jobs</h2>
+  <div class="slider-container">
+    <button class="arrow-btn" (click)="prev()">&#10094;</button>
+
+    <div class="job-cards-wrapper">
+      <div class="job-cards">
         <div
           *ngFor="let job of getVisibleJobs(); let i = index"
-          class="card"
-          [ngClass]="{
-            'active': isActive(i),
-            'left': isPrev(i),
-            'right': isNext(i)
-          }"
-          (click)="setActiveIndex(i)"
+          [ngClass]="{'job-card': true, 'active': isActive(i), 'prev': isPrev(i), 'next': isNext(i)}"
         >
-          <h3>{{ job?.title }}</h3> <!-- Use the safe navigation operator -->
-          <ul *ngIf="job">
-            <li>{{ job?.location }}</li>
-            <li>₹ {{ job?.salary | number }}</li>
-            <li>{{ job?.employmentType }}</li>
-            <li>{{ job?.workModel }}</li>
-          </ul>
-          <!-- View More button with routing to view-job page -->
-          <a *ngIf="job" [routerLink]="['/view-job', job?.id]" class="view-more">View More..</a>
+          <h3>{{ job?.title }}</h3>
+          <p class="location">&#x1F4CD; {{ job?.location }}</p>
+          <p class="salary">&#8377; {{ job?.salary | number }}</p>
+          <p class="employmentType">{{ job?.employmentType }}</p>
+          <p class="workModel">{{ job?.workModel }}</p>
+          <a [routerLink]="['/view-job', job?.id]" class="details-btn">View More</a>
         </div>
       </div>
-      <div class="navigation">
-        <button (click)="prev()">&#10094;</button>
-        <button (click)="next()">&#10095;</button>
-      </div>
     </div>
-    <!-- View All Jobs button -->
-     <div>
-      <a [routerLink]="'/view-all-jobs'" class="read-more">View More <button>&#10095;</button></a>
-     </div>
-
+    <a [routerLink]="'/view-all-jobs'" class="read-more">
+      View More <button>&#10095;</button>
+    </a> 
+    <button class="arrow-btn" (click)="next()">&#10095;</button>
+    
   </div>
-  
+ 
+</div>
