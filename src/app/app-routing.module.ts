@@ -28,6 +28,7 @@ import { ViewJobComponent } from './component/view-job/view-job.component';
 import { ApplyJobComponent } from './component/apply-job/apply-job.component';
 import { ApplyInternshipComponent } from './component/apply-internship/apply-internship.component';
 import { ViewAllFormsAdminComponent } from './component/view-all-forms-admin/view-all-forms-admin.component';
+import { UserhomepageComponent } from './component/userhomepage/userhomepage.component';
 
 const routes: Routes = [
   {path:'footer',component:FooterComponent},
@@ -58,6 +59,8 @@ const routes: Routes = [
   { path: 'apply-job/:id', component:ApplyJobComponent},
   {path: 'apply-internship/:id' ,component:ApplyInternshipComponent},
   {path:'view-all-forms-admin',component:ViewAllFormsAdminComponent},
+  { path: '**', redirectTo: '' } ,
+  {path:'userhomepage',component:UserhomepageComponent},
   
 
 

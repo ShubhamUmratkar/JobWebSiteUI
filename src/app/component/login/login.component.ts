@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/service/auth-service.service';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -13,8 +14,10 @@ export class LoginComponent {
   submitted = false;
   loginFailed = false;
   errorMessage: string = '';
+  username: string = '';
+  password: string = '';
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router,private authService:AuthServiceService) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -46,7 +49,15 @@ export class LoginComponent {
         this.errorMessage = error.error || 'Login failed. Please try again later.';
       }
     );
+
+    const isSuccess = this.authService.login(this.username, this.password);
+    if (isSuccess) {
+      this.router.navigate(['/']);  // Redirect to home page after login
+    } else {
+      this.errorMessage = 'Invalid username or password';
+    }
   }
+  
 
   // Getter for easy access to form controls in the template
   get f() {

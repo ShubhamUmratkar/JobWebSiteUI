@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
+  email: string = ''; // Bind the email input field
+  emailSentSuccess: boolean = false; // Flag to show success message
 
-
-  sendemail(){
-    alert('Mail Send Successfylly');
+  // Function to simulate email sending
+  sendEmail() {
+    alert("Email Sent Successfully.");
   }
 }

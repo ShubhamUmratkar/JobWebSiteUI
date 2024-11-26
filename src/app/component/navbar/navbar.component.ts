@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/service/auth-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  
   isNavbarOpen = false;
+
+  isLoggedIn = false;  // Track login status
+
+
     navItems = [
       {
         label: 'Home',
@@ -70,11 +77,29 @@ export class NavbarComponent {
         ]
       },
     ];
+   
+
+    constructor(private router: Router, private authService: AuthServiceService){}
+
+    ngOnInit(): void {
+      // Subscribe to authentication status
+      this.authService.isLoggedIn$.subscribe(isLoggedIn => {
+        this.isLoggedIn = isLoggedIn;
+      });
+    }
+
     toggleNavbar() {
       this.isNavbarOpen = !this.isNavbarOpen;  // Toggle navbar state
     }
 
     toggleDropdown(category: any) {
       category.isOpen = !category.isOpen;
+    }
+
+  
+
+    logout() {
+      this.authService.logout();
+      this.router.navigate(['/login']);  // Redirect to login page after logout
     }
   }

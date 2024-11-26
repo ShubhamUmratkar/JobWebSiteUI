@@ -23,30 +23,28 @@
     <h2>Job Website</h2>
     <p>Unlock your potential with the right opportunities</p>
     <div class="subscribe">
-      <input type="email" placeholder="Enter your email">
-      <button onclick="sendemail()">→</button>
+      <input type="email" [(ngModel)]="email" placeholder="Enter your email" />
+      <button (click)="sendEmail()">→</button>
+      <!-- Show message when email is sent -->
+      <p *ngIf="emailSentSuccess" class="success-message">Email has been sent successfully!</p>
     </div>
-    <p>© Job Websie. All Rights Reserved 2023</p>
+    <p>© Job Website. All Rights Reserved 2023</p>
   </div>
 
   <div class="footer-right">
     <div class="footer-column">
       <h3>Company</h3>
       <ul>
-        <li  [routerLink]="[('/')]">Home</li>
+        <li [routerLink]="['/']">Home</li>
         <li><a href="../../../assets/About Us.pdf" download class="download-link">About us</a></li>
-        <!-- <li>Careers</li>
-        <li>Press</li> -->
-        <!-- <li>Team</li> -->
         <li>SiteMap</li>
       </ul>
     </div>
     <div class="footer-column">
       <h3>Documentation</h3>
       <ul>
-        <!-- <li>Help Centre</li> -->
-        <li >  <a  href="tel:+919226592994" class="li"> Contact</a></li>
-        <li [routerLink]="[('/faqs')]">FAQ</li>
+        <li><a href="tel:+919226592994" class="li"> Contact</a></li>
+        <li [routerLink]="['/faqs']">FAQ</li>
         <li>Privacy and Terms</li>
       </ul>
     </div>
