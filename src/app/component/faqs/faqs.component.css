@@ -1,0 +1,29 @@
+.faq-container {
+    margin: 20px;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+  }
+  
+  .faq-item h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0073e6;
+  }
+  
+  .faq-item p {
+    margin-left: 20px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  #faq-link {
+    color: #0073e6;
+    cursor: pointer;
+  }
+  
+  #faq-link:hover {
+    text-decoration: underline;
+  }
+  

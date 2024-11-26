@@ -19,14 +19,21 @@ export class InternshipComponent implements OnInit {
 
   ngOnInit(): void {
     this.internshipForm = this.fb.group({
+      id:[''],
       title: ['', Validators.required],
       company: ['', Validators.required],
       location: ['', Validators.required],
       duration: [''],
       stipend: [''],
       qualifications: ['', Validators.required],
+      skills: [''],
       description: [''],
       status: ['', Validators.required],
+      openingStartDate: [''],
+      lastApplyDate: [''],
+      numberOfOpenings: [null],
+      perks: [''],
+      companyDescription: [''],
     });
     this.fetchInternships();
   }

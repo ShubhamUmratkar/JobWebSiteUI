@@ -9,9 +9,14 @@ export interface Job {
   salary: number;
   status: string;
   adminId?: number;
-  created_at?: string; // ISO datetime string
-  updated_at?: string; // ISO datetime string
-  jobDescription: string; // Description of the job
-  skills: string; // Comma-separated skills
-  company: string; // Name of the company
+  created_at?: string;
+  updated_at?: string;
+  jobDescription: string;
+  skills: string;
+  company: string;
+  openingStartDate?: string; // LocalDate as string
+  lastApplyDate?: string; // LocalDate as string
+  numberOfOpenings?: number;
+  perks?: string;
+  companyDescription?: string;
 }

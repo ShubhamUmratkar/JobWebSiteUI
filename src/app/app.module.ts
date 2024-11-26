@@ -24,6 +24,11 @@ import { ViewAllInternshipComponent } from './component/view-all-internship/view
 import { SaveJobComponent } from './component/save-job/save-job.component';
 import { ViellAllJobsComponent } from './component/viell-all-jobs/viell-all-jobs.component';
 import { JobspostsComponent } from './component/jobsposts/jobsposts.component';
+import { FaqsComponent } from './component/faqs/faqs.component';
+import { InternshipDetailsComponent } from './component/internship-details/internship-details.component';
+import { ViewJobComponent } from './component/view-job/view-job.component';
+import { ApplyJobComponent } from './component/apply-job/apply-job.component';
+import { ApplyInternshipComponent } from './component/apply-internship/apply-internship.component';
 
 
 
@@ -50,7 +55,12 @@ import { JobspostsComponent } from './component/jobsposts/jobsposts.component';
     ViewAllInternshipComponent,
     SaveJobComponent,
     ViellAllJobsComponent,
-    JobspostsComponent
+    JobspostsComponent,
+    FaqsComponent,
+    InternshipDetailsComponent,
+    ViewJobComponent,
+    ApplyJobComponent,
+    ApplyInternshipComponent,
 
   ],
   imports: [

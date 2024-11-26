@@ -14,6 +14,23 @@
   transition: all 0.3s ease;
 }
 
+/* Hamburger Icon for Mobile */
+.hamburger-icon {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: transform 0.3s ease;
+}
+
 /* Navigation Items */
 .nav-items {
   display: flex;
@@ -23,6 +40,11 @@
   padding: 0;
 }
 
+.nav-items.open {
+  display: flex; /* Make the menu visible when it is open */
+}
+
+/* Navigation Item Style */
 .nav-item {
   position: relative;
 }
@@ -62,46 +84,6 @@
   transform: translateY(0);
 }
 
-/* Dropdown Category */
-.dropdown-category {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc; /* Separate categories visually */
-}
-
-.dropdown-category:last-child {
-  border-bottom: none; /* Remove border for the last category */
-}
-
-.dropdown-category h3 {
-  margin: 0;
-  font-size: 1rem;
-  color: #007bff;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.dropdown-category h3:hover {
-  color: #0a2b4e;
-  transform: scale(1.05);
-}
-
-/* Dropdown Items */
-.dropdown-item a {
-  display: block;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  color: #333;
-  text-decoration: none;
-  border-radius: 0.25rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dropdown-item a:hover {
-  background-color: #0a2b4e;
-  color: white;
-}
-
 /* Login Button */
 .login-button {
   padding: 0.5rem 1rem;
@@ -129,9 +111,19 @@
   }
 
   .nav-items {
+    display: none; /* Hide the menu by default */
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+  }
+
+  .nav-items.open {
+    display: flex; /* Show the menu when open */
+  }
+
+  /* Hamburger Icon */
+  .hamburger-icon {
+    display: flex; /* Show the hamburger menu button */
   }
 
   .nav-item {

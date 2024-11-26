@@ -100,13 +100,13 @@
  
 /* CTA Section */
 .cta-section {
-  display:flexbox;
-  width: 178%;
-  align-items: center;
-  justify-content: flex;
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
   margin-top: 20px;
-  padding: 90px;
+  padding: 30px;
   background: linear-gradient(135deg, #a0d9ff, #5f9cff);
   border-radius: 10px;
 }
@@ -119,33 +119,41 @@
   text-align: left;
 }
  
-/* Register Button with Animation */
 .register-button {
-  display: flex;
-  gap: 5px;
-  padding: 12px 25px;
-  background: linear-gradient(45deg, #0077ff, #00d4ff);
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
+  background: linear-gradient(90deg, #4caf50, #81c784); /* Green gradient */
   border: none;
-  border-radius: 25px;
+  border-radius: 25px; /* Rounded corners */
+  padding: 12px 24px; /* Button padding */
+  text-align: center;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
 }
  
-.register-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 15px rgba(0, 119, 255, 0.5);
+.register-button a {
+  text-decoration: none;
+  color: white; /* Text color */
+  font-weight: bold;
+  font-size: 16px; /* Slightly larger font */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
  
 .register-button .arrow {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
+  margin-left: 8px;
+  font-size: 18px; /* Slightly larger arrow */
+  transition: transform 0.3s ease; /* Smooth arrow movement */
+}
+ 
+.register-button:hover {
+  background: linear-gradient(90deg, #388e3c, #66bb6a); /* Darker green on hover */
+  transform: translateY(-2px); /* Slight upward movement */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
 }
  
 .register-button:hover .arrow {
-  transform: translateX(8px);
+  transform: translateX(5px); /* Arrow slides forward */
 }
  
 /* Right Section: Image Overlay */
@@ -168,7 +176,7 @@
   height: 100%;
   object-fit: cover;
 }
- 
+
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
   .homepage-container {
@@ -184,6 +192,7 @@
   .cta-section {
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px;
   }
  
   .cta-title {
@@ -195,7 +204,7 @@
     height: 300px;
   }
 }
- 
+
 @media (max-width: 768px) {
   .homepage-container {
     grid-template-columns: 1fr;
@@ -251,29 +260,4 @@
     width: 200px;
     height: 200px;
   }
-}
- 
-/* Animation Keyframes */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
- 
-/* Animation Effects */
-.main-title, .cta-title {
-  animation: fadeIn 1s ease;
-}
- 
-.register-button, .search-button {
-  animation: fadeIn 1.5s ease;
-}
- 
-.image-overlay {
-  animation: fadeIn 2s ease;
 }

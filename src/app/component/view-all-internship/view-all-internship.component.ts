@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Internship } from 'src/app/model/internship.model';
 import { InternshipService } from 'src/app/service/service-internship.service';
 
@@ -12,7 +13,7 @@ import { InternshipService } from 'src/app/service/service-internship.service';
 export class ViewAllInternshipComponent implements OnInit {
   internships: Internship[] = [];
 
-  constructor(private internshipService: InternshipService) {}
+  constructor(private internshipService: InternshipService,  private router:Router) {}
 
   ngOnInit(): void {
     this.fetchAllInternships();
@@ -28,5 +29,13 @@ export class ViewAllInternshipComponent implements OnInit {
         console.error('Error fetching internships:', error);
       }
     );
+  }
+
+  viewInternshipDetails(id: number | undefined): void {
+    if (id !== undefined) {
+      this.router.navigate(['/internship-detail', id]); // Proceed to detail page if id is valid
+    } else {
+      console.error('Internship ID is undefined');
+    }
   }
 }

@@ -201,3 +201,17 @@
     font-size: 1rem; /* Slight adjustment for smaller screens */
   }
 }
+
+
+/* Style for the download link to make it look like the rest of the list items */
+.download-link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherits the color from the parent, so it matches the normal text */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* Optional: Style on hover to indicate interactivity (if desired) */
+.download-link:hover {
+  color: #0b0b0b; /* Change the color on hover if you want a visual effect */
+}

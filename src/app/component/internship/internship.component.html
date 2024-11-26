@@ -13,7 +13,7 @@
       <hr />
       <ul class="nav flex-column mx-5 ">
         <li class="nav-item mb-2">
-          <a class="nav-link" [routerLink]="['/save-jobs']" routerLinkActive="router-link-active">
+          <a class="nav-link" [routerLink]="['/save-job']" routerLinkActive="router-link-active">
             <i class="fa fa-briefcase text-warning"></i> Job's
           </a>
         </li>
@@ -30,6 +30,12 @@
           </a>
         </li>
 
+        <!-- View All Forms -->
+        <li class="nav-item mb-2">
+          <a class="nav-link" [routerLink]="['/userslist']">
+            <i class="fa fa-eye text-info"></i> View All Forms
+          </a>
+        </li>
    
 
         <!-- <li class="nav-item mb-2">
@@ -65,72 +71,103 @@
       </div>
 
 
-<!-- internship.component.html -->
+   <!-- internship.component.html -->
 
-<div class="container">
-  <h2>Manage Internships</h2>
-  <form
-    [formGroup]="internshipForm"
-    (ngSubmit)="selectedInternship ? updateInternship() : createInternship()"
-  >
-    <div>
-      <label>Title</label>
-      <input type="text" formControlName="title" />
-    </div>
-    <div>
-      <label>Company</label>
-      <input type="text" formControlName="company" />
-    </div>
-    <div>
-      <label>Location</label>
-      <input type="text" formControlName="location" />
-    </div>
-    <div>
-      <label>Duration</label>
-      <input type="text" formControlName="duration" />
-    </div>
-    <div>
-      <label>Stipend</label>
-      <input type="text" formControlName="stipend" />
-    </div>
-    <div>
-      <label>Qualifications</label>
-      <input type="text" formControlName="qualifications" />
-    </div>
-    <div>
-      <label>Description</label>
-      <textarea formControlName="description"></textarea>
-    </div>
-    <div>
-      <label>Status</label>
-      <input type="text" formControlName="status" />
-    </div>
-    <button type="submit">
-      {{ selectedInternship ? "Update" : "Create" }}
-    </button>
-    <button type="button" (click)="resetForm()">Reset</button>
-  </form>
+   <div class="container">
+    <h2>Manage Internships</h2>
+    <form
+      [formGroup]="internshipForm"
+      (ngSubmit)="
+        selectedInternship ? updateInternship() : createInternship()
+      "
+    >
+      <div>
+        <label>Title</label>
+        <input type="text" formControlName="title" />
+      </div>
+      <div>
+        <label>Company</label>
+        <input type="text" formControlName="company" />
+      </div>
+      <div>
+        <label>Location</label>
+        <input type="text" formControlName="location" />
+      </div>
+      <div>
+        <label>Duration</label>
+        <input type="text" formControlName="duration" />
+      </div>
+      <div>
+        <label>Stipend</label>
+        <input type="text" formControlName="stipend" />
+      </div>
+      <div>
+        <label>Qualifications</label>
+        <input type="text" formControlName="qualifications" />
+      </div>
+      <div>
+        <label>Skills</label>
+        <input type="text" formControlName="skills" />
+      </div>
+      <div>
+        <label>Description</label>
+        <textarea formControlName="description"></textarea>
+      </div>
+      <div>
+        <label>Status</label>
+        <input type="text" formControlName="status" />
+      </div>
+      <div>
+        <label>Opening Start Date</label>
+        <input type="date" formControlName="openingStartDate" />
+      </div>
+      <div>
+        <label>Last Apply Date</label>
+        <input type="date" formControlName="lastApplyDate" />
+      </div>
+      <div>
+        <label>Number of Openings</label>
+        <input type="number" formControlName="numberOfOpenings" />
+      </div>
+      <div>
+        <label>Perks</label>
+        <textarea formControlName="perks"></textarea>
+      </div>
+      <div>
+        <label>Company Description</label>
+        <textarea formControlName="companyDescription"></textarea>
+      </div>
+      <button type="submit">
+        {{ selectedInternship ? "Update" : "Create" }}
+      </button>
+      <button type="button" (click)="resetForm()">Reset</button>
+    </form>
 
-  <h3>Internships</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Company</th>
-        <th>Location</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let internship of internships">
-        <td>{{ internship.title }}</td>
-        <td>{{ internship.company }}</td>
-        <td>{{ internship.location }}</td>
-        <td>
-          <button (click)="selectInternship(internship)">Edit</button>
-          <button (click)="deleteInternship(internship.id)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <h3>Internships</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let internship of internships">
+          <td>{{ internship.title }}</td>
+          <td>{{ internship.company }}</td>
+          <td>{{ internship.location }}</td>
+          <td>
+            <button (click)="selectInternship(internship)">Edit</button>
+            <button (click)="deleteInternship(internship.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
 </div>

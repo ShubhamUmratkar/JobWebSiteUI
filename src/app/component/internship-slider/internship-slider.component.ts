@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Internship } from 'src/app/model/internship.model';
 import { InternshipService } from 'src/app/service/service-internship.service';
 
@@ -10,8 +11,9 @@ import { InternshipService } from 'src/app/service/service-internship.service';
 export class InternshipSliderComponent {
   internships: Internship[] = [];
   currentIndex = 0;
+  
 
-  constructor(private internshipService: InternshipService) {}
+  constructor(private internshipService: InternshipService , private router:Router) {}
 
   ngOnInit(): void {
     this.fetchInternships();
@@ -22,6 +24,8 @@ export class InternshipSliderComponent {
     this.internshipService.getAllInternships().subscribe(
       (data) => {
         this.internships = data;
+        console.log(data,'Internship @@@@@@@@@@@@@@@@@@');
+        
       },
       (error) => {
         console.error('Error fetching internships:', error);
@@ -58,4 +62,14 @@ export class InternshipSliderComponent {
   isNext(index: number): boolean {
     return index === 2;
   }
+
+
+  viewInternshipDetails(id: number | undefined): void {
+    if (id !== undefined) {
+      this.router.navigate(['/internship-detail', id]); // Proceed to detail page if id is valid
+    } else {
+      console.error('Internship ID is undefined');
+    }
+  }
+  
 }

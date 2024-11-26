@@ -1,5 +1,13 @@
 <nav class="navbar">
-  <ul class="nav-items">
+  <!-- Hamburger Icon for Mobile View -->
+  <button class="hamburger-icon" (click)="toggleNavbar()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Navigation Items -->
+  <ul class="nav-items" [class.open]="isNavbarOpen">
     <li class="nav-item" *ngFor="let item of navItems">
       <a>{{ item.label }}</a>
       <div class="dropdown">
@@ -12,5 +20,7 @@
       </div>
     </li>
   </ul>
+
+  <!-- Login Button -->
   <button class="login-button" [routerLink]="['/login']">Login</button>
 </nav>

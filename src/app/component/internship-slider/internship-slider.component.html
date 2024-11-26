@@ -19,7 +19,12 @@
           <p class="location">&#x1F4CD; {{ internship.location }}</p>
           <p class="stipend">&#8377; {{ internship.stipend }} / Month</p>
           <p class="duration">&#x1F4C5; {{ internship.duration }} Months</p>
-          <button class="details-btn">View Details</button>
+          <button
+          class="details-btn"
+          *ngIf="internship.id !== undefined"
+          (click)="viewInternshipDetails(internship.id)">
+          View Details
+        </button>
         </div>
       </div>
       <button class="arrow-btn" (click)="nextSlide()">&#10095;</button>

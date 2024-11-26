@@ -71,7 +71,7 @@ export class NavbarComponent {
       },
     ];
     toggleNavbar() {
-      this.isNavbarOpen = !this.isNavbarOpen;
+      this.isNavbarOpen = !this.isNavbarOpen;  // Toggle navbar state
     }
 
     toggleDropdown(category: any) {

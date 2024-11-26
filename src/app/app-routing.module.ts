@@ -22,6 +22,11 @@ import { ViewAllInternshipComponent } from './component/view-all-internship/view
 import { SaveJobComponent } from './component/save-job/save-job.component';
 import { ViellAllJobsComponent } from './component/viell-all-jobs/viell-all-jobs.component';
 import { JobspostsComponent } from './component/jobsposts/jobsposts.component';
+import { FaqsComponent } from './component/faqs/faqs.component';
+import { InternshipDetailsComponent } from './component/internship-details/internship-details.component';
+import { ViewJobComponent } from './component/view-job/view-job.component';
+import { ApplyJobComponent } from './component/apply-job/apply-job.component';
+import { ApplyInternshipComponent } from './component/apply-internship/apply-internship.component';
 
 const routes: Routes = [
   {path:'footer',component:FooterComponent},
@@ -46,6 +51,13 @@ const routes: Routes = [
   {path:'save-job',component:SaveJobComponent},
   {path:'view-all-jobs',component:ViellAllJobsComponent},
   {path:'job-posts',component:JobspostsComponent},
+  {path:'faqs',component:FaqsComponent},
+  { path: 'internship-detail/:id', component: InternshipDetailsComponent },
+  { path: 'view-job/:id', component: ViewJobComponent },
+  { path: 'apply-job/:id', component:ApplyJobComponent},
+  {path: 'apply-internship/:id' ,component:ApplyInternshipComponent},
+  
+  
 
 
 ];

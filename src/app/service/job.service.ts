@@ -12,14 +12,18 @@ export class JobService {
 
   constructor(private http: HttpClient) {}
 
+  getJobById(id: number): Observable<Job> {
+    return this.http.get<Job>(`${this.apiUrl}/getJobById/${id}`);
+  }
+
 
   getAllJobs(): Observable<Job[]> {
     return this.http.get<Job[]>(`${this.apiUrl}/getAllJobs`);
   }
   
 
-  saveJob(job: Job): Observable<any> {
-    return this.http.post(`${this.apiUrl}/saveJobs`, job);
+  saveJob(adminId: number, job: Job): Observable<Job> {
+    return this.http.post<Job>(`${this.apiUrl}/saveJob/${adminId}`, job);
   }
 
   searchJobs(searchParams: any): Observable<Job[]> {
@@ -40,7 +44,7 @@ export class JobService {
     return this.http.delete(`${this.apiUrl}/deleteJob/${jobId}`);
   }
 
-  updateJob(job: Job): Observable<any> {
-    return this.http.put(`${this.apiUrl}/updateJob`, job);
+  updateJob(id: number, job: Job): Observable<Job> {
+    return this.http.put<Job>(`${this.apiUrl}/updateJob/${id}`, job);
   }
 }

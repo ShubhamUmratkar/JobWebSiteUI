@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Section</title>
+  <style>
+    /* CSS for FAQ Section */
+    .faq-container {
+      margin: 20px;
+      display: none;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-item h4 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0073e6;
+    }
+
+    .faq-item ul {
+      margin-left: 20px;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    #faq-link {
+      color: #0073e6;
+      cursor: pointer;
+    }
+
+    #faq-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Documentation Section in Footer -->
+  <div class="footer-column">
+    <h3>Documentation</h3>
+    <ul>
+      <li>Contact</li>
+      <li id="faq-link" style="cursor:pointer;">FAQ</li>
+      <li>Privacy and Terms</li>
+    </ul>
+  </div>
+
+  <!-- FAQ Section with Simple Points -->
+  <div id="faq-section" class="faq-container">
+    <h3>Frequently Asked Questions</h3>
+    
+    <div class="faq-item">
+      <h4>1. How can I post a job on XYZ?</h4>
+      <ul>
+        <li>Log into your employer account and click on Post a Job.</li>
+        <li>Fill out the job description, requirements, and other details.</li>
+        <li>Once submitted, the job post will go live after a quick review.</li>
+      </ul>
+    </div>
+    
+    <div class="faq-item">
+      <h4>2. Can I search for candidates directly?</h4>
+      <ul>
+        <li>Yes, with our resume database access plans, you can search and contact candidates who match your job requirements directly.</li>
+      </ul>
+    </div>
+    
+    <div class="faq-item">
+      <h4>3. Are there packages available for bulk job postings?</h4>
+      <ul>
+        <li>Yes, XYZ offers multiple pricing plans for bulk job postings.</li>
+        <li>Contact our sales team for customized solutions.</li>
+      </ul>
+    </div>
+    
+    <div class="faq-item">
+      <h4>4. How can I manage applications received for my job postings?</h4>
+      <ul>
+        <li>Log into your account and go to the Applications section.</li>
+        <li>You can review, shortlist, and contact candidates directly from your dashboard.</li>
+      </ul>
+    </div>
+    
+    <div class="faq-item">
+      <h4>5. Is there customer support available for employers?</h4>
+      <ul>
+        <li>Absolutely! You can reach out to us via the Contact Us page or email us at support Xyz for assistance.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to toggle the FAQ section visibility
+    document.getElementById("faq-link").addEventListener("click", function() {
+      const faqSection = document.getElementById("faq-section");
+      if (faqSection.style.display === "none" || faqSection.style.display === "") {
+        faqSection.style.display = "block";
+      } else {
+        faqSection.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

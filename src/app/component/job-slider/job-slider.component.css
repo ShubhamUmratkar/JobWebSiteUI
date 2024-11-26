@@ -36,8 +36,10 @@ html, body {
     border-radius: 12px;
     color: black;
     position: relative;
-    width: 97%;
+    width: 100%;
     max-width: 100%;
+    height: 100%;
+    
     box-sizing: border-box;
     margin: 0 auto;
     overflow: visible;
@@ -46,19 +48,20 @@ html, body {
 /* Slider container: flex for cards */
 .slider-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     padding: 0 1rem;
     box-sizing: border-box;
-    overflow: visible;
+    overflow: hidden;
     position: relative;
+    flex-wrap: nowrap;  /* Ensure no wrapping of cards */
 }
 
 /* Card styles */
 .card {
-    width: 18vw;
-    height: 25vh;
+    width: 25vw; /* Default card width for larger screens */
+    height:    50vh;
     padding: 20px;
     border-radius: 10px;
     color: black;
@@ -72,15 +75,18 @@ html, body {
     justify-content: center;
     position: relative;
     z-index: 0;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 /* Active card styles */
 .card.active {
-    height: 50vh;
-    /* background-color: rgba(128, 128, 128, 0.6); */
+    height: 60vh;
     transform: scale(1.1);
     z-index: 1;
     top: -10vh;
+    border-color: #00d2ff;
 }
 
 /* Scale the content inside the active card */
@@ -95,12 +101,6 @@ html, body {
 .card.active .view-more {
     font-size: 1.2rem;
     padding: 10px 20px;
-}
-
-/* Styles for the left and right cards */
-.card.left,
-.card.right {
-    transform: scale(1);
 }
 
 /* Card text styles */
@@ -123,7 +123,7 @@ html, body {
 
 /* View more button styles */
 .view-more {
-    background: white;
+
     color: black;
     border: 2px solid white;
     padding: 5px 15px;
@@ -133,7 +133,7 @@ html, body {
 }
 
 .view-more:hover {
-    background: #00d2ff;
+    /* background: #00d2ff; */
     color: white;
 }
 
@@ -171,7 +171,6 @@ html, body {
 .read-more {
     position: absolute;
     right: 50px;
-   
     font-size: 16px;
     text-decoration: none;
     color: #007bff;
@@ -187,25 +186,23 @@ html, body {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .title-container h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+        font-size: 1.8rem;
     }
 
     .job-slider {
-        width: 95%;
-        padding: 1.5rem;
+        width: 90%;
+        padding: 2rem;
     }
 
     .card {
-        width: 22vw;
-        height: 30vh;
-        margin: 0 1rem;
+        width: 22vw; /* Adjust card width */
+        height: 35vh;
     }
 
     .card.active {
-        height: 55vh;
+        height: 50vh;
     }
 
     .card.active h3 {
@@ -219,6 +216,40 @@ html, body {
     .card.active .view-more {
         font-size: 1.4rem;
         padding: 12px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .job-slider {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .card {
+        width: 50vw; /* Ensure only 1 card shows on small screens */
+        height: 40vh;
+    }
+
+    .card.active {
+        height: 55vh;
+    }
+
+    .card.active h3 {
+        font-size: 1.4rem;
+    }
+
+    .card.active ul li {
+        font-size: 1.3rem;
+    }
+
+    .card.active .view-more {
+        font-size: 1.5rem;
+        padding: 14px 28px;
     }
 }
 
@@ -240,13 +271,13 @@ html, body {
     }
 
     .card {
-        width: 90vw;
-        height: 40vh;
+        width: 90vw; /* Adjust card width */
+        height: 50vh;
         margin: 10px 0;
     }
 
     .card.active {
-        height: 70vh;
+        height: 60vh;
     }
 
     .card.active h3 {
@@ -254,7 +285,7 @@ html, body {
     }
 
     .card.active ul li {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 
     .card.active .view-more {
