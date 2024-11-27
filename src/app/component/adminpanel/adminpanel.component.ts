@@ -30,4 +30,5 @@ export class AdminpanelComponent {
   viewFormDetails(form: any): void {
     this.selectedForm = form;
   }
+
 }

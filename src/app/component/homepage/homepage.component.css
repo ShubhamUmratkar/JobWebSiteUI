@@ -101,6 +101,7 @@
 /* CTA Section */
 .cta-section {
   display: flex;
+  width: 202%;
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;

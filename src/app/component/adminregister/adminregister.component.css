@@ -52,7 +52,7 @@ html, body {
 /* Form Styling */
 .form-container h2 {
   text-align: center;
-  color: #000000;
+  color: #002a72;
   font-size: 24px;
   margin-bottom: 20px;
 }
@@ -85,7 +85,7 @@ html, body {
   width: 100%;
   padding: 12px;
   background-color: #65a8f0;
-  color: #ffffff;
+  color: #000000c7;
   border: none;
   border-radius: 5px;
   font-size: 16px;

@@ -20,65 +20,76 @@
     margin: 0 -15px;
   }
 
-  /* Sidebar styles */
-  .sidebar {
-    background-color: #ffffff;
-    padding-top: 20px;
-    padding-left: 20px;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    color: #fff;
-  }
+/* Sidebar styles */
+.sidebar {
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-left: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  color: #fff;
+}
 
-  .sidebar .text-center {
-    text-align: center;
-  }
+.sidebar .text-center {
+  text-align: center;
+}
 
-  .sidebar .text-center img {
-    max-width: 150px;
-    border-radius: 50%;
-  }
+.sidebar .text-center img {
+  max-width: 150px;
+  border-radius: 50%;
+}
 
-  .sidebar .text-center h5 {
-    margin-top: 10px;
-  }
+.sidebar .text-center h5 {
+  margin-top: 5px;
+  font-size: 1.5rem; /* Increase heading font size */
+}
 
-  .sidebar hr {
-    border-top: 1px solid #fff;
-    margin: 20px 0;
-  }
+.sidebar hr {
+  border-top: 1px solid #fff;
+  margin: 10px ;
+}
 
-  .sidebar .nav {
-    display: flex;
-    flex-direction: column;
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
+/* Make nav items horizontal */
+.sidebar .nav {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  justify-content: space-between; /* Space out items evenly */
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 
-  .sidebar .nav-item {
-    margin-bottom: 1rem;
-  }
+.sidebar .nav-item {
+  margin-bottom: 0; /* Remove vertical margin */
+  margin-right: 15px; /* Add horizontal space between items */
+}
 
-  .sidebar .nav-link {
-    text-decoration: none;
-    color: #2c3e50;
-    padding: 0.75rem;
-    display: block;
-  }
+.sidebar .nav-link {
+  text-decoration: none;
+  color: #2c3e50;
+  padding: 1rem; /* Increase padding for larger clickable area */
+  font-size: 1.25rem; /* Increased font size for nav links */
+  transition: all 0.3s ease;
+}
 
-  .sidebar .nav-link:hover {
-    color: #007bff;
-    background: #f0f4f8;
-  }
+.sidebar .nav-link:hover {
+  color: #007bff;
+  background: #f0f4f8;
+}
 
-  .sidebar .text-warning {
-    color: #ffc107;
-  }
+.sidebar .nav-link i {
+  font-size: 1.3rem; /* Increase the size of icons */
+  margin-right: 10px; /* Add space between icon and text */
+}
 
-  .sidebar .text-info {
-    color: #17a2b8;
-  }
+.sidebar .text-warning {
+  color: #ffc107;
+}
+
+.sidebar .text-info {
+  color: #17a2b8;
+}
+
 
   /* Main content styles */
   .col-8 {

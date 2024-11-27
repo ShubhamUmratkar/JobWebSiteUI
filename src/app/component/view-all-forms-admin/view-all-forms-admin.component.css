@@ -41,6 +41,7 @@ body {
 
 .sidebar .text-center h5 {
   margin-top: 10px;
+  font-size: 1.5rem; /* Increase heading font size */
 }
 
 .sidebar hr {
@@ -62,13 +63,20 @@ body {
 .sidebar .nav-link {
   text-decoration: none;
   color: #2c3e50;
-  padding: 0.75rem;
+  padding: 1rem; /* Increase padding for larger clickable area */
   display: block;
+  font-size: 1.25rem; /* Increased font size for nav links */
+  transition: all 0.3s ease;
 }
 
 .sidebar .nav-link:hover {
   color: #007bff;
   background: #f0f4f8;
+}
+
+.sidebar .nav-link i {
+  font-size: 1.3rem; /* Increase the size of icons */
+  margin-right: 10px; /* Add space between icon and text */
 }
 
 .sidebar .text-warning {
@@ -79,10 +87,12 @@ body {
   color: #17a2b8;
 }
 
+
 /* Main content styles */
 .col-8, .col-md-8, .col-lg-10 {
   padding: 20px;
   background-color: #f9f9f9;
+  flex: 1;
 }
 
 /* Form grid layout */
@@ -159,23 +169,77 @@ body {
   background-color: #0056b3;
 }
 
+
+
+
 /* Responsive Design */
-@media (max-width: 768px) {
-  .form-grid {
-      grid-template-columns: 1fr 1fr;
+
+/* For tablets and smaller screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .sidebar {
+    position: relative;
+    height: auto;
+    padding-left: 15px;
+    padding-top: 10px;
   }
 
-  .form-details {
-      margin-top: 20px;
+  .sidebar .nav {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .col-8, .col-md-8, .col-lg-10 {
+    padding: 10px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 480px) {
+/* For mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    height: auto;
+    padding: 10px;
+  }
+
+  .sidebar .nav {
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .col-8, .col-md-8, .col-lg-10 {
+    padding: 15px;
+    width: 100%;
+  }
+
   .form-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .form-details {
-      margin-top: 20px;
+    margin-top: 20px;
+  }
+}
+
+/* For very small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .sidebar .text-center img {
+    max-width: 120px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-details {
+    margin-top: 20px;
+  }
+
+  .form-card p {
+    font-size: 1rem;
   }
 }

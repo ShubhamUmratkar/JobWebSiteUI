@@ -1,5 +1,9 @@
+
 <nav class="navbar">
-  <a href="../../../assets/Job Website logo.jpeg"></a>
+  <a href="#" class="navbar-logo">
+    <img src="../../../assets/AchaJobs.png" alt="Company Logo" />
+  </a>
+  
   <!-- Hamburger Icon for Mobile View -->
   <button class="hamburger-icon" (click)="toggleNavbar()">
     <span class="bar"></span>
@@ -11,12 +15,9 @@
   <ul class="nav-items" [class.open]="isNavbarOpen">
     <li *ngFor="let item of navItems" class="nav-item">
       <a>{{ item.label }}</a>
-      <!-- Combined Dropdown: Primary and Secondary inside the same div -->
       <div class="dropdown" *ngIf="item.categories">
         <div class="dropdown-category" *ngFor="let category of item.categories">
           <h3>{{ category.title }}<span class="dropdown-icon"></span></h3>
-
-          <!-- Secondary Dropdown (nested inside primary dropdown) -->
           <div class="secondary-dropdown">
             <a *ngFor="let subItem of category.items" href="#">
               {{ subItem }}
@@ -35,3 +36,5 @@
     Logout
   </button>
 </nav>
+
+

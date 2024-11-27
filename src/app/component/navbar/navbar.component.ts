@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
 import * as bootstrap from 'bootstrap';
+import { UserService } from 'src/app/service/user.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class NavbarComponent {
   
   isNavbarOpen = false;
   userData: any = null;
-  isLoggedIn = false;  // Track login status
+  isLoggedIn = true;  // Track login status
 
 
     navItems = [
@@ -81,35 +82,38 @@ export class NavbarComponent {
     ];
    
 
-    constructor(private router: Router, private authService: AuthServiceService){}
-    
-    ngOnInit(): void {
-      // Subscribe to authentication status
-      this.authService.isLoggedIn$.subscribe(isLoggedIn => {
-        this.isLoggedIn = isLoggedIn;
-      });
-    }
+    constructor(private router: Router, private userservice: UserService) {}
+
+  ngOnInit(): void {
+    // Subscribe to authentication status changes
+    this.userservice.isLoggedIn$.subscribe((isLoggedIn: boolean) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
 
   ngAfterViewInit(): void {
-    // Ensure Bootstrap JS is loaded and dropdowns are initialized
+    // Initialize Bootstrap dropdowns if needed
     const dropdownElement = document.getElementById('navbarDropdown');
     if (dropdownElement) {
-      new bootstrap.Dropdown(dropdownElement); // Initialize Bootstrap dropdown
+      new bootstrap.Dropdown(dropdownElement);  
     }
   }
 
-    toggleNavbar() {
-      this.isNavbarOpen = !this.isNavbarOpen;  // Toggle navbar state
-    }
-
-    toggleDropdown(category: any) {
-      category.isOpen = !category.isOpen;
-    }
-
-  
-
-    logout() {
-      this.authService.logout();
-      this.router.navigate(['/login']);  // Redirect to login page after logout
-    }
+  toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;  
   }
+
+  loginUser(userName: string, password: string): void {
+    // Call the login method from the UserService
+    this.userservice.loginUser(userName, password).subscribe(response => {
+      if (response === 'Login successful.') {
+        this.router.navigate(['/']);  
+      }
+    });
+  }
+
+  logout(): void {
+    this.userservice.logout();  
+    this.router.navigate(['/']);  
+  }
+}

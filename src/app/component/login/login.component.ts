@@ -14,10 +14,12 @@ export class LoginComponent {
   submitted = false;
   loginFailed = false;
   errorMessage: string = '';
-  username: string = '';
-  password: string = '';
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router,private authService:AuthServiceService) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private userService: UserService, 
+    private router: Router
+  ) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -39,40 +41,35 @@ export class LoginComponent {
     this.userService.loginUser(username, password).subscribe(
       (response: any) => {
         // Successful login
-        alert('Successfully LogIn');  // Assuming your backend returns a message in the response body
         this.loginFailed = false;
-        this.router.navigate(['/']);  // Navigate to another page after successful login
+        console.log('Login successful', response);
+
+        // Redirect to home page after login
+        this.router.navigate(['/']);  // Navigate to home page
       },
       (error) => {
         // Login failed
         this.loginFailed = true;
         this.errorMessage = error.error || 'Login failed. Please try again later.';
+        console.error('Login error', error);
       }
     );
-
-    const isSuccess = this.authService.login(this.username, this.password);
-    if (isSuccess) {
-      this.router.navigate(['/']);  // Redirect to home page after login
-    } else {
-      this.errorMessage = 'Invalid username or password';
-    }
   }
-  
 
   // Getter for easy access to form controls in the template
   get f() {
     return this.loginForm.controls;
   }
 
-  navigateToAdminLogin(){
+  navigateToAdminLogin() {
     this.router.navigate(['/adminlogindynamic']);
   }
 
-  navigateToForgotPassword(){
-
+  navigateToForgotPassword() {
+    // Implement forgot password navigation logic
   }
 
-  navigateToHome(){
+  navigateToHome() {
     this.router.navigate(['/']);
   }
 }

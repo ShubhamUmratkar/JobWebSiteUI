@@ -36,3 +36,72 @@
     background-color: #f9f9f9;
   }
   
+
+/* Sidebar styles */
+.sidebar {
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-left: 20px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  color: #fff;
+}
+
+.sidebar .text-center {
+  text-align: center;
+}
+
+.sidebar .text-center img {
+  max-width: 150px;
+  border-radius: 50%;
+}
+
+.sidebar .text-center h5 {
+  margin-top: 10px;
+  font-size: 1.5rem; /* Increase heading font size */
+}
+
+.sidebar hr {
+  border-top: 1px solid #fff;
+  margin: 20px 0;
+}
+
+.sidebar .nav {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.sidebar .nav-item {
+  margin-bottom: 1rem;
+}
+
+.sidebar .nav-link {
+  text-decoration: none;
+  color: #2c3e50;
+  padding: 1rem; /* Increase padding for larger clickable area */
+  display: block;
+  font-size: 1.25rem; /* Increased font size for nav links */
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  color: #007bff;
+  background: #f0f4f8;
+}
+
+.sidebar .nav-link i {
+  font-size: 1.3rem; /* Increase the size of icons */
+  margin-right: 10px; /* Add space between icon and text */
+}
+
+.sidebar .text-warning {
+  color: #ffc107;
+}
+
+.sidebar .text-info {
+  color: #17a2b8;
+}
+

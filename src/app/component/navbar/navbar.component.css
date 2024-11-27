@@ -19,6 +19,12 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
  
+.navbar-logo img {
+  height: 90px;
+  width: 120px;
+  object-fit: contain;
+}
+ 
 /* Hamburger Icon for Mobile */
 .hamburger-icon {
   display: none;
@@ -96,16 +102,16 @@
 .dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: calc(100% + 0.25rem); /* Reduced space above */
   left: 0;
-  background-color: #ffffffe8;
-  border: 2px solid #007bff;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  /* background-color: #ffffffe8;
+  border: 1px solid #007bff; */
+  border-radius: 0.25rem; /* Smaller corner radius */
+  padding: 0.5rem; /* Reduced padding */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   z-index: 100;
-  min-width: 200px;
-  transform: translateY(-10px);
+  min-width: 150px; /* Adjusted width */
+  transform: translateY(0px);
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -119,6 +125,9 @@
  
 .dropdown-category h3 {
   padding: 1rem;
+  background-color: #ffffffe8;
+  border: 1px;
+  border-radius: 0.25rem;
   margin: 0;
   font-size: 1rem;
   color: #007bff;
@@ -131,22 +140,25 @@
 }
  
 .secondary-dropdown {
-  display: none;
-  position:static;
-  top: calc(100% + 1rem);
-  left: 0;
+  position: relative; /* Change to relative */
+  margin-top: 0.5rem; /* Add margin to separate it from the parent dropdown */
+  background-color: #ffffffe8;
+  border: 2px solid #007bff;
   border-radius: 0.5rem;
   padding: 1rem;
-  z-index: 100;
-  min-width: 190px;
-  transform: translateY(-10px);
-  opacity: 5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  min-width: 20px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 99; /* Ensure it stays above other elements */
 }
  
 .dropdown-category:hover .secondary-dropdown  {
-  display: block;
   opacity: 1;
+  transform: scaleY(1); /* Animate from top */
+  display: block;
 }
  
 .secondary-dropdown a {
@@ -270,4 +282,25 @@
     padding: 0.5rem 0.8rem;
   }
 }
- 
+
+.logout-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #0a2b4e;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.logout-button {
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem;
+}

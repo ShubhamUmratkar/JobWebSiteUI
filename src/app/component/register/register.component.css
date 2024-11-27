@@ -26,9 +26,9 @@
 /* Adjust text size for h2 */
 .register-container h2 {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin-bottom: 20px;
-  color: #333; /* Dark text color */
+  color: #000000; /* Dark text color */
 }
 
 /* Form Labels and Inputs */
@@ -36,8 +36,8 @@
   display: block;
   margin-top: 10px;
   font-weight: bold;
-  font-size: 0.9rem;
-  color: #333; /* Dark text color */
+  font-size: 0.6rem;
+  color: #000000; /* Dark text color */
 }
 
 .register-container input,
@@ -47,7 +47,7 @@
   margin-top: 8px;
   border-radius: 5px;
   border: 1px solid #cccccc05;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   transition: all 0.3s ease;
 }
 
@@ -100,3 +100,4 @@
     width: 90%;
   }
 }
+

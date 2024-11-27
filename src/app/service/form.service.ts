@@ -14,6 +14,6 @@ export class FormService {
 
   // Fetch all forms
   getAllForms(): Observable<Form[]> {
-    return this.http.get<Form[]>(`${this.apiUrl}/form/getAllForms`);
+    return this.http.get<Form[]>(`${this.apiUrl}/getAllForms`);
   }
 }

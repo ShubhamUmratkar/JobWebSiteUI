@@ -15,7 +15,7 @@ body, html {
 .job-slider {
   text-align: center;
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -101,6 +101,7 @@ h2 {
   border-radius: 20px;
   transition: background 0.3s ease;
   z-index: 1; /* Ensures the button stays above content */
+  text-decoration: none; /* No underline */
 }
 
 .details-btn:hover {
@@ -174,3 +175,5 @@ h2 {
   cursor: pointer;
   margin-left: 5px;
 }
+
+
