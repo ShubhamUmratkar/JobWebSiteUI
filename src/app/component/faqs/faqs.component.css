@@ -21,6 +21,9 @@
   color: #333;
   margin-bottom: 5px;
   display: block;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 /* Sub-lists (answers) */
@@ -40,11 +43,25 @@
 /* Add some hover effect on questions */
 .faq-container li:hover > strong {
   color: #0073e6;
-  cursor: pointer;
-  text-decoration: underline;
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Style for the last answer item (for consistency) */
 .faq-container ul ul li:last-child {
   margin-bottom: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 15px;
+  }
+
+  .faq-container li > strong {
+    font-size: 16px;
+  }
+
+  .faq-container ul ul li {
+    font-size: 14px;
+  }
 }

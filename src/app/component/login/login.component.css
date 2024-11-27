@@ -1,15 +1,30 @@
+/* Full-screen background image */
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/user login.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1; /* Ensure the background is behind the content */
+}
+
 /* Styling for the login container */
 .login-container {
   width: 100%;
   max-width: 400px;
   margin: auto;
   padding: 40px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.362); /* Semi-transparent white background */
   border-radius: 8px;
-  background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
+  backdrop-filter: blur(15px); /* Apply blur effect */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   position: relative;
+  z-index: 1; /* Ensure the form is on top */
 }
 
 /* Close Button Styling (top-right) */
@@ -19,7 +34,7 @@
   right: 10px;
   font-size: 24px;
   cursor: pointer;
-  color: #888;
+  color:black;
 }
 
 .close-btn:hover {
@@ -29,7 +44,7 @@
 /* Title Styling */
 .login-container h2 {
   margin-bottom: 20px;
-  color: #333;
+  color: rgba(0, 0, 0, 0.653);
   font-family: 'Arial', sans-serif;
 }
 
@@ -37,7 +52,7 @@
 .login-container label {
   display: block;
   font-weight: bold;
-  color: #555;
+  color: rgba(0, 0, 0, 0.603);
   margin-top: 15px;
   text-align: left;
 }
@@ -56,8 +71,8 @@
 .login-container button {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
-  color: white;
+  background-color: #00aeff80;
+  color: rgba(128, 128, 128, 0.996);
   font-weight: bold;
   border: none;
   border-radius: 5px;
@@ -68,14 +83,14 @@
 
 /* Hover Effect for Login Button */
 .login-container button:hover {
-  background-color: #0056b3;
+  background-color: #0068b370;
 }
 
 /* Forgot Password Button Styling */
 .login-container .forgot-password {
   width: 100%;
   padding: 10px;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa75;
   color: #007bff;
   font-weight: normal;
   border: none;

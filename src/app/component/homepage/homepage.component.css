@@ -109,6 +109,7 @@
   padding: 30px;
   background: linear-gradient(135deg, #a0d9ff, #5f9cff);
   border-radius: 10px;
+  
 }
  
 .cta-title {
@@ -120,7 +121,7 @@
 }
  
 .register-button {
-  background: linear-gradient(90deg, #4caf50, #81c784); /* Green gradient */
+  background-color: #f5faff;
   border: none;
   border-radius: 25px; /* Rounded corners */
   padding: 12px 24px; /* Button padding */
@@ -132,7 +133,7 @@
  
 .register-button a {
   text-decoration: none;
-  color: white; /* Text color */
+  color: rgb(0, 0, 0); /* Text color */
   font-weight: bold;
   font-size: 16px; /* Slightly larger font */
   display: flex;
@@ -144,12 +145,22 @@
   margin-left: 8px;
   font-size: 18px; /* Slightly larger arrow */
   transition: transform 0.3s ease; /* Smooth arrow movement */
+  
+  /* Create the circular background around the arrow */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Set the size of the circle */
+  height: 30px; /* Set the size of the circle */
+  background-color: #000000; /* Dark background for the circle */
+  color: white; /* Arrow color */
+  border-radius: 50%; /* Make the background circular */
+  padding: 5px; /* Adjust padding for better centering of the arrow */
+  margin-left: 8px;
 }
- 
-.register-button:hover {
-  background: linear-gradient(90deg, #388e3c, #66bb6a); /* Darker green on hover */
-  transform: translateY(-2px); /* Slight upward movement */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+
+.register-button .arrow:hover {
+  transform: scale(1.1); /* Optional: Add hover effect for better interactivity */
 }
  
 .register-button:hover .arrow {

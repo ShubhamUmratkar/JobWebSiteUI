@@ -56,7 +56,7 @@ h2 {
   background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
   border-radius: 10px;
   padding: 3rem; /* Increased padding */
-  width: 230px; /* Increased width */
+  width: 250px; /* Increased width */
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;

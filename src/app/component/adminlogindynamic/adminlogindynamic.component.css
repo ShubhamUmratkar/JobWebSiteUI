@@ -1,217 +1,127 @@
 /* General Reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body, html {
-  font-family: Arial, sans-serif;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f4f7fc; /* Soft background color */
+  font-family: Arial, sans-serif;
 }
 
-/* Full Container - Make sure the content is centered */
+/* Full-Page Background Image */
 .full-container {
   display: flex;
-  width: 100%;
-  height: 100vh; /* Full height */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
-}
-
-/* Left Section - Background with Text */
-.left-section {
-  width: 40%; /* Adjust width as needed */
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  color: #000000; /* Set default text color to black */
+  width: 100%;
+  height: 100vh;
+  background-image: url('/assets/images/admin login.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Left Section heading and description */
-.left-section h2 {
-  font-size: 36px; /* Heading size */
-  margin-bottom: 20px;
-  color: #000000; /* Make the heading text black */
-  z-index: 1;
-}
-
-.left-section p {
-  font-size: 18px; /* Description size */
-  margin-bottom: 30px;
-  color: #000000; /* Make the paragraph text black */
-  z-index: 1;
-}
-  
-
-/* Right Section - Form Container */
+/* Right Section - Login Form */
 .right-section {
-  background-color: #ffffff;
-  background: linear-gradient(135deg, #84e5eb, #78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3); /* Gradient background */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  width: 40%; /* Adjust width for desired layout */
-  padding: 80px 60px; /* Increase padding for a larger appearance */
+  width: 30%; /* Adjust width of the login section */
+  background-color: rgba(255, 255, 255, 0.347); /* Semi-transparent white background */
+  backdrop-filter: blur(15px); /* Blur effect applied to this section */
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
-  border-radius: 8px;
-  position: relative; /* To position the close button inside */
+  position: relative;
 }
 
-/* Close Button Styling (top-right of the form) */
+/* Close Button Styling */
 .close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
-  color: #888;
+  color: #555;
 }
 
 .close-btn:hover {
   color: red;
 }
 
-/* Form Heading */
+/* Login Heading */
 .right-section h2 {
-  font-size: 32px; /* Increase font size for the heading */
+  font-size: 28px;
   color: #333333;
-  margin-bottom: 30px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: capitalize;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
-/* Form Group */
+/* Form Fields */
 .form-group {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
-  font-size: 16px; /* Increase font size for labels */
-  color: #555555;
-  margin-bottom: 8px;
-  font-weight: 500;
-  width: 100%;
-  text-align: left;
-}
-
-/* Input Fields */
-.form-group input[type="text"],
-.form-group input[type="password"] {
-  width: 100%;
-  padding: 20px; /* Increase padding for input fields */
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  font-size: 16px; /* Larger font size for readability */
+  font-size: 16px;
   color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   background-color: #f9f9f9;
-  transition: all 0.3s ease;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="password"]:focus {
+.form-group input:focus {
   border-color: #007bff;
-  box-shadow: 0 0 8px rgba(199, 199, 199, 0.3);
-  background-color: #ffffff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Submit Button */
+/* Login Button */
 button[type="submit"] {
   width: 100%;
-  padding: 20px; /* Further increase padding for the button */
-  background-color: #007bff;
+  padding: 12px;
+  background-color: #00aeff50;
   color: #ffffff;
   border: none;
-  border-radius: 6px;
-  font-size: 20px; /* Larger font size for the button text */
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+  background-color: #0083b394;
 }
 
 /* Error Message */
 .error {
   color: red;
-  text-align: center;
-  margin-top: 10px;
   font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
 }
 
-/* "Forgot Password?" Link */
+/* Register Link */
 .login-link {
-  text-align: center;
   margin-top: 15px;
+  text-align: center;
 }
 
 .login-link a {
-  color: #ffffff;
+  color: #007bff;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .login-link a:hover {
-  color: #010101;
-}
-
-/* Register Now Link */
-.register-link {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.register-link a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.register-link a:hover {
   color: #0056b3;
-}
-
-/* Responsive Design for smaller screens */
-@media (max-width: 767px) {
-  .full-container {
-    flex-direction: column;
-  }
-
-  .left-section, .right-section {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .left-section {
-    padding-top: 60px;
-  }
-
-  .right-section {
-    padding: 40px 20px;
-  }
-
-  .close-btn {
-    top: 10px;
-    right: 10px;
-    font-size: 20px;
-  }
 }

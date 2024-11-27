@@ -1,18 +1,11 @@
 <div class="full-container">
-  <!-- Left Section (Optional Background) -->
-  <div class="left-section">
-    <h2>Welcome Back</h2>
-    <p>Login to continue accessing your dashboard</p>
-    <div class="illustration"></div>
-  </div>
-
   <!-- Right Section - Form Section -->
   <div class="right-section">
-    <!-- Close Button Styling (top-right) -->
+    <!-- Close Button Styling (top-right of the form) -->
     <div class="close-btn" (click)="navigateToHome()">&#x2715;</div>
 
     <!-- Form Heading -->
-    <h2> Admin Login</h2>
+    <h2>Admin Login</h2>
 
     <!-- Form Container -->
     <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
