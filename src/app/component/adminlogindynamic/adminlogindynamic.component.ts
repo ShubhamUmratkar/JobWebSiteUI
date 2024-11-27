@@ -46,6 +46,7 @@ export class AdminlogindynamicComponent {
     this.AdminService.loginAdmin(username, password).subscribe(
       (response: string) => {
         this.isLoading = false; // Stop loading spinner
+        console.log(response,'Response');
         this.router.navigate(['/save-job']); // Navigate to dashboard
       },
       (error) => {
