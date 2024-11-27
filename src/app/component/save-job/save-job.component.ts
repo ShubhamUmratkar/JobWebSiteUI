@@ -71,6 +71,7 @@ export class SaveJobComponent {
     this.jobService.saveJob(adminId, this.job).subscribe({
       next: (response) => {
         this.successMessage = 'Job saved successfully!';
+        alert("Job Added Successfully!");
         this.loadJobs();
         setTimeout(() => this.successMessage = null, 3000); // Hide after 3 seconds
       },
