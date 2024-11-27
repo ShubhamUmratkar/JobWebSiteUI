@@ -1,3 +1,9 @@
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+
 <div class="job-container">
   <div class="job-header">
     <h1>{{ jobTitle || 'Loading...' }}</h1>
@@ -10,7 +16,7 @@
       <div><i class="fa fa-calendar-alt"></i> <strong>Start Date:</strong></div>
       <div><i class="fa fa-money-bill-wave"></i> <strong>CTC (Annual):</strong></div>
       <div><i class="fa fa-briefcase"></i> <strong>Experience:</strong></div>
-      <!-- <div><i class="fa fa-calendar-check"></i> <strong>Apply By:</strong></div> -->
+      <div><i class="fa fa-calendar-check"></i> <strong>Apply By:</strong></div>
     </div>
     <div class="detail-item details">
       <span>{{ startDate || 'Loading...' }}</span>
@@ -21,14 +27,17 @@
   </div>
 
   <div class="posted-info-container">
-    <p><i class="fa fa-calendar"></i> Hiring since {{ activity.started || 'Loading...' }} · {{ activity.opportunities }} opportunities posted · 
+    <p><i class="fa fa-calendar"></i>  {{ activity.opportunities }} opportunities posted · 
       <span class="job-highlight">Job</span><br> 
       <span class="applicant-count"><i class="fas fa-users applicant-count-icon"></i> {{ applicants || '0' }} applicants</span>
     </p>
-    <div class="icon-container">
-      <div class="icon"><i class="fas fa-save"></i></div>
-      <div class="icon"><i class="fas fa-share-alt"></i></div>
-    </div>
+    <!-- Share Icon -->
+<div class="icon-container">
+  <div class="icon" (click)="sharePage()">
+    <i class="fas fa-share-alt"></i>
+  </div>
+</div>
+
   </div>
 
   <div class="job-description">
@@ -71,7 +80,7 @@
 
     <div class="activity-info">
       <p>Activity on Internshala</p>
-      <p><i class="fa fa-calendar"></i> Hiring since {{ activity.started || 'Loading...' }} · {{ activity.opportunities }} opportunities posted · {{ activity.hired }} candidates hired</p>
+      <p><i class="fa fa-calendar"></i>   {{ activity.opportunities }} opportunities posted · {{ activity.hired }} candidates hired</p>
     </div>
     <button class="apply-button" (click)="onApplyNow()">Apply now</button>
   </div>

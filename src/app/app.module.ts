@@ -31,6 +31,7 @@ import { ApplyJobComponent } from './component/apply-job/apply-job.component';
 import { ApplyInternshipComponent } from './component/apply-internship/apply-internship.component';
 import { ViewAllFormsAdminComponent } from './component/view-all-forms-admin/view-all-forms-admin.component';
 import { UserhomepageComponent } from './component/userhomepage/userhomepage.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -73,6 +74,7 @@ import { UserhomepageComponent } from './component/userhomepage/userhomepage.com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,  
+    NgbDropdownModule
 
   ],
   providers: [],

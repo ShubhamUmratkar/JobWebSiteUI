@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/service/auth-service.service';
+import * as bootstrap from 'bootstrap';
+
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,7 @@ import { AuthServiceService } from 'src/app/service/auth-service.service';
 export class NavbarComponent {
   
   isNavbarOpen = false;
-
+  userData: any = null;
   isLoggedIn = false;  // Track login status
 
 
@@ -80,13 +82,21 @@ export class NavbarComponent {
    
 
     constructor(private router: Router, private authService: AuthServiceService){}
-
+    
     ngOnInit(): void {
       // Subscribe to authentication status
       this.authService.isLoggedIn$.subscribe(isLoggedIn => {
         this.isLoggedIn = isLoggedIn;
       });
     }
+
+  ngAfterViewInit(): void {
+    // Ensure Bootstrap JS is loaded and dropdowns are initialized
+    const dropdownElement = document.getElementById('navbarDropdown');
+    if (dropdownElement) {
+      new bootstrap.Dropdown(dropdownElement); // Initialize Bootstrap dropdown
+    }
+  }
 
     toggleNavbar() {
       this.isNavbarOpen = !this.isNavbarOpen;  // Toggle navbar state

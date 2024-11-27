@@ -22,6 +22,7 @@ export class InternshipDetailsComponent {
     hired: 0
   };
   internshipId: number | null = null;
+  jobTitle: string | undefined;
 
   constructor(
     private internshipService: InternshipService,
@@ -74,6 +75,32 @@ export class InternshipDetailsComponent {
 
     } else {
       alert('Internship ID is missing.');
+    }
+  }
+
+
+  sharePage(): void {
+    const shareText = `Check out this amazing job opportunity at ${this.companyName}`;
+    const shareUrl = window.location.href;  // Get the current page URL
+  
+    console.log('Share button clicked');  // Debugging: confirm the method is being triggered
+    console.log('Share URL:', shareUrl);  // Debugging: confirm the URL
+  
+    if (navigator.share) {
+      navigator.share({
+        title: this.jobTitle,         // Job title
+        text: shareText,              // The text content to share
+        url: shareUrl                 // The current page URL
+      }).then(() => {
+        console.log('Job details shared successfully!');
+      }).catch((error) => {
+        console.error('Error sharing the job:', error);
+        alert('Something went wrong while sharing the job!');
+      });
+    } else {
+      // Fallback: Log and alert if Web Share API is not supported
+      console.log('Web Share API is not supported');
+      alert('Sharing is not supported on this browser.');
     }
   }
 }

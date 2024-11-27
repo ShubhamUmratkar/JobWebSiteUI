@@ -69,7 +69,8 @@
           <p><strong>Experience:</strong> {{ job.experience }}</p>
           <p><strong>Work Mode:</strong> {{ job.workModel }}</p>
           <p><strong>Job Description:</strong> {{ job.jobDescription }}</p>
-          <button class="apply-button">Apply Now</button>
+          <!-- Apply Now Button -->
+          <button class="apply-button" (click)="job.id ? onApplyNow(job.id) : null">Apply Now</button>
         </div>
       </div>
     </div>

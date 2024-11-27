@@ -55,15 +55,15 @@ h2 {
 .internship-card {
   background: linear-gradient(135deg, #84e5eb,#78d2e4, #66b5d9, #579dcf, #559acf, #4d8dc9, #4682c6, #427cc3);
   border-radius: 10px;
-  padding: 1.5rem;
-  width: 180px;
+  padding: 2rem; /* Increased padding */
+  width: 240px; /* Increased width */
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease;
   opacity: 1; /* No opacity change for non-active states */
   transform: scale(1); /* No scaling change for non-active states */
   text-align: left;
-  height: 300px;
+  height: 350px; /* Increased height */
   /* Consistent text styling */
   font-size: 1rem;
   font-weight: normal;
@@ -85,7 +85,7 @@ h2 {
 
 .details-btn {
   position: absolute;
-  bottom: 20px; /* Position the button at the bottom */
+  bottom: 10px; /* Adjusted position to give space from the bottom */
   left: 50%; /* Horizontally center the button */
   transform: translateX(-50%); /* Center the button precisely */
   display: inline-flex;
@@ -95,10 +95,11 @@ h2 {
   color: #333;
   font-size: 1rem;
   cursor: pointer;
-  padding: 0.5rem 3.5rem;
+  padding: 0.5rem 2.5rem; /* Reduced padding to fit better */
   border: none;
   border-radius: 20px;
   transition: background 0.3s ease;
+  z-index: 1; /* Ensures the button stays above content */
 }
 
 .details-btn:hover {
@@ -151,7 +152,6 @@ h2 {
 .read-more {
   position: absolute;
   text-decoration: none; /* Ensure no underline on the button */
-
   right: 50px;
   bottom: 10px;
   font-size: 16px;

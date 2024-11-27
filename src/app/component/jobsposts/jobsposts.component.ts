@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Job } from 'src/app/model/job.model';
 import { JobService } from 'src/app/service/job.service';
 
@@ -10,7 +11,8 @@ import { JobService } from 'src/app/service/job.service';
 export class JobspostsComponent {
 
 
-    jobs: Job[] = [];  // All jobs fetched from the backend
+  
+  jobs: Job[] = [];  // All jobs fetched from the backend
   filteredJobs: Job[] = [];  // Jobs after applying the filter
   loading = true;  // A loading indicator to show while data is being fetched
   error: string = '';  // For error handling
@@ -23,7 +25,7 @@ export class JobspostsComponent {
     experience: ''
   };
 
-  constructor(private jobService: JobService) {}
+  constructor(private jobService: JobService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAllJobs();
@@ -112,5 +114,11 @@ export class JobspostsComponent {
       experience: ''
     };
     this.filteredJobs = this.jobs;  // Show all jobs again after clearing filters
+  }
+
+  // Navigate to the job application page when the user clicks "Apply Now"
+  onApplyNow(jobId: number): void {
+    this.router.navigate([`/apply-job/${jobId}`]);
+    console.log("Navigating to apply for job with ID:", jobId);
   }
 }

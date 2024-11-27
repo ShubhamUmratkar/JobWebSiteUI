@@ -1,4 +1,5 @@
 <nav class="navbar">
+  <a href="../../../assets/Job Website logo.jpeg"></a>
   <!-- Hamburger Icon for Mobile View -->
   <button class="hamburger-icon" (click)="toggleNavbar()">
     <span class="bar"></span>
@@ -8,13 +9,18 @@
 
   <!-- Navigation Items -->
   <ul class="nav-items" [class.open]="isNavbarOpen">
-    <li class="nav-item" *ngFor="let item of navItems">
+    <li *ngFor="let item of navItems" class="nav-item">
       <a>{{ item.label }}</a>
-      <div class="dropdown">
-        <div *ngFor="let category of item.categories" class="dropdown-category">
-          <h3>{{ category.title }} <span class="dropdown-icon"></span></h3>
-          <div *ngFor="let subitem of category.items" class="dropdown-item">
-            <a href="#">{{ subitem }}</a>
+      <!-- Combined Dropdown: Primary and Secondary inside the same div -->
+      <div class="dropdown" *ngIf="item.categories">
+        <div class="dropdown-category" *ngFor="let category of item.categories">
+          <h3>{{ category.title }}<span class="dropdown-icon"></span></h3>
+
+          <!-- Secondary Dropdown (nested inside primary dropdown) -->
+          <div class="secondary-dropdown">
+            <a *ngFor="let subItem of category.items" href="#">
+              {{ subItem }}
+            </a>
           </div>
         </div>
       </div>
@@ -22,6 +28,10 @@
   </ul>
 
   <!-- Conditional Login/Logout Button -->
-  <button class="login-button" *ngIf="!isLoggedIn" routerLink="/login">Login</button>
-  <button class="logout-button" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+  <button class="login-button" *ngIf="!isLoggedIn" routerLink="/login">
+    Login
+  </button>
+  <button class="logout-button" *ngIf="isLoggedIn" (click)="logout()">
+    Logout
+  </button>
 </nav>
